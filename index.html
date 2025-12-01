@@ -11,8 +11,8 @@
     content="LUXORA PRESTIGE REAL ESTATE L.L.C – Dubai-based real estate company helping you invest in Dubai’s fastest-growing communities and find the right home for you and your family."
   />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
+  <!-- Favicon (logo.jpg) -->
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
 
   <!-- Open Graph / Social preview -->
   <meta property="og:type" content="website" />
@@ -210,7 +210,7 @@
       color: var(--text);
     }
 
-    /* زر المنيو للموبايل */
+    /* mobile nav toggle */
     .nav-toggle {
       display: none;
       border: none;
@@ -233,11 +233,15 @@
     }
 
     .nav-toggle.active span:first-child {
-      transform: translateY(2px) rotate(45deg);
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
     }
 
     .nav-toggle.active span:last-child {
-      transform: translateY(-2px) rotate(-45deg);
+      transform: translateY(-5px) rotate(-45deg);
     }
 
     main {
@@ -579,6 +583,49 @@
       color: var(--muted);
     }
 
+    .contact-form {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .contact-form-row {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .contact-form-row label {
+      color: var(--muted);
+    }
+
+    .contact-form-row input,
+    .contact-form-row textarea {
+      width: 100%;
+      padding: 0.5rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(7, 8, 13, 0.95);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .contact-form-row input:focus,
+    .contact-form-row textarea:focus {
+      border-color: rgba(240, 195, 82, 0.7);
+      box-shadow: 0 0 0 1px rgba(240, 195, 82, 0.3);
+    }
+
+    .contact-form-row textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      justify-self: flex-start;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 1.2rem;
@@ -720,7 +767,7 @@
     <nav class="nav">
       <div class="nav-left">
         <div class="logo">
-          <img src="logo.png" alt="LUXORA PRESTIGE REAL ESTATE L.L.C logo" />
+          <img src="logo.jpg" alt="LUXORA PRESTIGE REAL ESTATE L.L.C logo" />
         </div>
         <div class="logo-text">
           <span>LUXORA PRESTIGE</span>
@@ -730,6 +777,7 @@
 
       <!-- mobile toggle -->
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
         <span></span>
         <span></span>
       </button>
@@ -778,7 +826,7 @@
         <aside class="hero-card">
           <div class="hero-card-inner">
             <div class="hero-card-logo">
-              <img src="logo.png" alt="LUXORA PRESTIGE REAL ESTATE logo" />
+              <img src="logo.jpg" alt="LUXORA PRESTIGE REAL ESTATE logo" />
             </div>
             <div class="hero-card-title">LUXORA PRESTIGE</div>
             <div class="hero-card-sub" data-i18n="hero_card_sub"></div>
@@ -924,7 +972,39 @@
           </div>
         </div>
 
-        <div class="contact-card" data-i18n="contact_note"></div>
+        <div class="contact-card">
+          <div data-i18n="contact_note"></div>
+
+          <!-- Contact form (mailto: info@luxora-prestige.ae) -->
+          <form
+            class="contact-form"
+            action="mailto:info@luxora-prestige.ae"
+            method="POST"
+            enctype="text/plain"
+          >
+            <div class="contact-form-row">
+              <label for="name" data-i18n="contact_form_name_label"></label>
+              <input id="name" name="Name" type="text" required />
+            </div>
+
+            <div class="contact-form-row">
+              <label for="email" data-i18n="contact_form_email_label"></label>
+              <input id="email" name="Email" type="email" required />
+            </div>
+
+            <div class="contact-form-row">
+              <label for="phone" data-i18n="contact_form_phone_label"></label>
+              <input id="phone" name="Phone" type="text" />
+            </div>
+
+            <div class="contact-form-row">
+              <label for="message" data-i18n="contact_form_message_label"></label>
+              <textarea id="message" name="Message" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" data-i18n="contact_form_submit"></button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -1031,6 +1111,13 @@
         contact_location_value: "Dubai, United Arab Emirates",
         contact_note:
           "Whether you are outside the UAE and looking for a safe entry into the Dubai market or already living in the city and searching for your next upgrade, <strong>LUXORA PRESTIGE</strong> provides clear guidance, curated property options and ongoing support.",
+
+        contact_form_name_label: "Full name",
+        contact_form_email_label: "Email address",
+        contact_form_phone_label: "Mobile / WhatsApp (optional)",
+        contact_form_message_label: "Your message",
+        contact_form_submit: "Send message",
+
         footer_rights:
           "© " +
           new Date().getFullYear() +
@@ -1117,6 +1204,13 @@
         contact_location_value: "دبي، الإمارات العربية المتحدة",
         contact_note:
           "سواء كنت خارج الإمارات وتبحث عن مدخل آمن لسوق دبي العقاري، أو مقيم في دبي وتفكر في ترقية سكنك أو تنويع استثماراتك، تقدّم لك <strong>لوكسورا برستيج</strong> إرشاداً واضحاً وخيارات مختارة بعناية مع متابعة مستمرة.",
+
+        contact_form_name_label: "الاسم الكامل",
+        contact_form_email_label: "البريد الإلكتروني",
+        contact_form_phone_label: "الموبايل / واتساب (اختياري)",
+        contact_form_message_label: "رسالتك",
+        contact_form_submit: "إرسال الرسالة",
+
         footer_rights:
           "© " +
           new Date().getFullYear() +
@@ -1204,6 +1298,13 @@
         contact_location_value: "Dubai, Verenigde Arabische Emiraten",
         contact_note:
           "Of u nu buiten de VAE woont en veilig in de Dubai-markt wilt instappen, of al in Dubai woont en zoekt naar uw volgende stap: <strong>LUXORA PRESTIGE</strong> biedt helder advies, zorgvuldig geselecteerde objecten en blijvende ondersteuning.",
+
+        contact_form_name_label: "Volledige naam",
+        contact_form_email_label: "E-mailadres",
+        contact_form_phone_label: "Mobiel / WhatsApp (optioneel)",
+        contact_form_message_label: "Uw bericht",
+        contact_form_submit: "Bericht versturen",
+
         footer_rights:
           "© " +
           new Date().getFullYear() +
@@ -1291,6 +1392,13 @@
         contact_location_value: "Дубай, ОАЭ",
         contact_note:
           "Если вы только планируете выйти на рынок недвижимости Дубая или уже живёте в городе и задумываетесь о следующем шаге, <strong>LUXORA PRESTIGE</strong> предложит понятную стратегию, отобранные варианты и сопровождение на каждом этапе.",
+
+        contact_form_name_label: "Полное имя",
+        contact_form_email_label: "E-mail",
+        contact_form_phone_label: "Мобильный / WhatsApp (опционально)",
+        contact_form_message_label: "Ваше сообщение",
+        contact_form_submit: "Отправить сообщение",
+
         footer_rights:
           "© " +
           new Date().getFullYear() +
