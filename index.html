@@ -12,7 +12,7 @@
   />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.jpg" />
+  <link rel="icon" type="image/png" href="logo.png" />
 
   <!-- Open Graph / Social preview -->
   <meta property="og:type" content="website" />
@@ -138,7 +138,7 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
     }
 
     .nav-links {
@@ -210,7 +210,7 @@
       color: var(--text);
     }
 
-    /* Mobile menu toggle button */
+    /* زر المنيو للموبايل */
     .nav-toggle {
       display: none;
       border: none;
@@ -619,14 +619,12 @@
         padding-inline: 1rem;
       }
 
-      /* Show hamburger on mobile */
       .nav-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
       }
 
-      /* Mobile dropdown menu */
       .nav-right {
         position: absolute;
         top: 100%;
@@ -722,7 +720,7 @@
     <nav class="nav">
       <div class="nav-left">
         <div class="logo">
-          <img src="logo.jpg" alt="LUXORA PRESTIGE REAL ESTATE L.L.C logo" />
+          <img src="logo.png" alt="LUXORA PRESTIGE REAL ESTATE L.L.C logo" />
         </div>
         <div class="logo-text">
           <span>LUXORA PRESTIGE</span>
@@ -730,7 +728,7 @@
         </div>
       </div>
 
-      <!-- Mobile menu toggle -->
+      <!-- mobile toggle -->
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span>
         <span></span>
@@ -780,7 +778,7 @@
         <aside class="hero-card">
           <div class="hero-card-inner">
             <div class="hero-card-logo">
-              <img src="logo.jpg" alt="LUXORA PRESTIGE REAL ESTATE logo" />
+              <img src="logo.png" alt="LUXORA PRESTIGE REAL ESTATE logo" />
             </div>
             <div class="hero-card-title">LUXORA PRESTIGE</div>
             <div class="hero-card-sub" data-i18n="hero_card_sub"></div>
@@ -947,7 +945,6 @@
       ru: { label: "Русский", flag: "🇷🇺" }
     };
 
-    // المفاتيح اللي مسموح فيها HTML (strong وغيره)
     const htmlKeys = new Set([
       "about_highlight",
       "contact_note"
@@ -1380,6 +1377,24 @@
           current = (current + 1) % slides.length;
           slides[current].classList.add("active");
         }, 6000);
+      }
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById("navToggle");
+      const navRight = document.getElementById("navRight");
+
+      if (navToggle && navRight) {
+        navToggle.addEventListener("click", () => {
+          navRight.classList.toggle("open");
+          navToggle.classList.toggle("active");
+        });
+
+        navRight.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navRight.classList.remove("open");
+            navToggle.classList.remove("active");
+          });
+        });
       }
     });
   </script>
