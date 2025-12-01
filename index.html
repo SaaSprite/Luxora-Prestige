@@ -194,6 +194,32 @@
       padding: 2.8rem 1.2rem;
     }
 
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-slider {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-bg-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      filter: brightness(0.35);
+    }
+
+    .hero-bg-slide.active {
+      opacity: 1;
+    }
+
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
@@ -572,7 +598,7 @@
         </div>
 
         <div class="lang-switcher" id="langSwitcher">
-          <!-- يتم توليد الأزرار من جافاسكريبت بناءً على اللغات المفعّلة -->
+          <!-- buttons are created in JS -->
         </div>
       </div>
     </nav>
@@ -580,7 +606,23 @@
 
   <main>
     <!-- Hero -->
-    <section class="section" id="home">
+    <section class="section hero-section" id="home">
+      <div class="hero-bg-slider">
+        <!-- تأكد إنك رافع هالصور بنفس الأسماء -->
+        <div
+          class="hero-bg-slide active"
+          style="background-image:url('hero1.jpg')"
+        ></div>
+        <div
+          class="hero-bg-slide"
+          style="background-image:url('hero2.jpg')"
+        ></div>
+        <div
+          class="hero-bg-slide"
+          style="background-image:url('hero3.jpg')"
+        ></div>
+      </div>
+
       <div class="hero">
         <div>
           <div class="hero-badge" data-i18n="hero_badge"></div>
@@ -590,7 +632,11 @@
           </h1>
           <p class="hero-subtitle" data-i18n="hero_subtitle"></p>
           <div class="hero-actions">
-            <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" data-i18n="hero_cta"></button>
+            <button
+              class="btn-primary"
+              onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+              data-i18n="hero_cta"
+            ></button>
             <div class="hero-meta" data-i18n="hero_meta"></div>
           </div>
         </div>
@@ -605,12 +651,24 @@
             <div class="hero-card-divider"></div>
             <div class="hero-card-row">
               <div>
-                <div class="hero-card-label" data-i18n="hero_card_location_label"></div>
-                <div class="hero-card-value" data-i18n="hero_card_location_value"></div>
+                <div
+                  class="hero-card-label"
+                  data-i18n="hero_card_location_label"
+                ></div>
+                <div
+                  class="hero-card-value"
+                  data-i18n="hero_card_location_value"
+                ></div>
               </div>
               <div>
-                <div class="hero-card-label" data-i18n="hero_card_focus_label"></div>
-                <div class="hero-card-value" data-i18n="hero_card_focus_value"></div>
+                <div
+                  class="hero-card-label"
+                  data-i18n="hero_card_focus_label"
+                ></div>
+                <div
+                  class="hero-card-value"
+                  data-i18n="hero_card_focus_value"
+                ></div>
               </div>
             </div>
           </div>
@@ -675,37 +733,68 @@
         <div>
           <div class="contact-list">
             <div>
-              <div class="contact-item-label" data-i18n="contact_email_label"></div>
+              <div
+                class="contact-item-label"
+                data-i18n="contact_email_label"
+              ></div>
               <div>
-                <a href="mailto:info@luxora-prestige.ae">info@luxora-prestige.ae</a>
+                <a href="mailto:info@luxora-prestige.ae"
+                  >info@luxora-prestige.ae</a
+                >
               </div>
             </div>
 
             <div>
-              <div class="contact-item-label" data-i18n="contact_phone_label"></div>
+              <div
+                class="contact-item-label"
+                data-i18n="contact_phone_label"
+              ></div>
               <div>
-                <a href="https://wa.me/971564469695" target="_blank" rel="noopener">+971 56 446 9695</a>
+                <a
+                  href="https://wa.me/971564469695"
+                  target="_blank"
+                  rel="noopener"
+                  >+971 56 446 9695</a
+                >
               </div>
             </div>
 
             <div>
-              <div class="contact-item-label" data-i18n="contact_instagram_label"></div>
+              <div
+                class="contact-item-label"
+                data-i18n="contact_instagram_label"
+              ></div>
               <div>
-                <a href="https://www.instagram.com/luxoraprestige" target="_blank" rel="noopener">@luxoraprestige</a>
+                <a
+                  href="https://www.instagram.com/luxoraprestige"
+                  target="_blank"
+                  rel="noopener"
+                  >@luxoraprestige</a
+                >
               </div>
             </div>
 
             <div>
-              <div class="contact-item-label" data-i18n="contact_facebook_label"></div>
+              <div
+                class="contact-item-label"
+                data-i18n="contact_facebook_label"
+              ></div>
               <div>
-                <a href="https://www.facebook.com/profile.php?id=61572460080845" target="_blank" rel="noopener">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61572460080845"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Facebook
                 </a>
               </div>
             </div>
 
             <div>
-              <div class="contact-item-label" data-i18n="contact_location_label"></div>
+              <div
+                class="contact-item-label"
+                data-i18n="contact_location_label"
+              ></div>
               <div data-i18n="contact_location_value"></div>
             </div>
           </div>
@@ -721,10 +810,9 @@
   </footer>
 
   <script>
-    // اللغات المفعّلة في الموقع – احذف أي لغة لا تريد استخدامها
+    // اللغات المفعّلة – احذف أي لغة ما بدك ياها
     const enabledLanguages = ["en", "ar", "nl", "ru"];
 
-    // أسماء اللغات والأعلام
     const languageMeta = {
       en: { label: "English", flag: "🇬🇧" },
       ar: { label: "العربية", flag: "🇦🇪" },
@@ -1024,7 +1112,6 @@
         }
       });
 
-      // تحديث حالة أزرار اللغات
       document
         .querySelectorAll("#langSwitcher button")
         .forEach((btn) =>
@@ -1054,10 +1141,11 @@
       });
     }
 
-    // اختيار اللغة الافتراضية بناء على لغة المتصفح
     function detectInitialLanguage() {
       const browserLang =
-        (navigator.language || navigator.userLanguage || "en").slice(0, 2).toLowerCase();
+        (navigator.language || navigator.userLanguage || "en")
+          .slice(0, 2)
+          .toLowerCase();
 
       if (enabledLanguages.includes(browserLang)) {
         return browserLang;
@@ -1069,6 +1157,17 @@
       buildLanguageButtons();
       const initialLang = detectInitialLanguage();
       setLanguage(initialLang);
+
+      // Hero background slider
+      const slides = document.querySelectorAll(".hero-bg-slide");
+      if (slides.length > 1) {
+        let current = 0;
+        setInterval(() => {
+          slides[current].classList.remove("active");
+          current = (current + 1) % slides.length;
+          slides[current].classList.add("active");
+        }, 6000); // كل ٦ ثواني
+      }
     });
   </script>
 </body>
