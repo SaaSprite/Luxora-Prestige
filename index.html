@@ -4,10 +4,30 @@
   <meta charset="UTF-8" />
   <title>LUXORA PRESTIGE REAL ESTATE L.L.C</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Basic meta -->
   <meta
     name="description"
-    content="LUXORA PRESTIGE REAL ESTATE L.L.C – Dubai-based real estate company helping you invest in Dubai’s fastest-growing properties and find the perfect home for you and your family."
+    content="LUXORA PRESTIGE REAL ESTATE L.L.C – Dubai-based real estate company helping you invest in Dubai’s fastest-growing communities and find the right home for you and your family."
   />
+
+  <!-- Favicon (استخدم logo.jpg كأيقونة للموقع) -->
+  <link rel="icon" type="image/png" href="logo.jpg" />
+
+  <!-- Open Graph / Social preview (واتساب، فيسبوك، لينكدإن...) -->
+  <!-- تأكد وجود ملف social-preview.jpg في نفس المجلد -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LUXORA PRESTIGE REAL ESTATE L.L.C – Dubai Real Estate Advisory" />
+  <meta property="og:description" content="Boutique real estate advisory in Dubai helping you invest in high-growth communities and find the right home for you and your family." />
+  <meta property="og:image" content="social-preview.jpg" />
+  <meta property="og:url" content="https://saasprite.github.io/Luxora-Prestige/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LUXORA PRESTIGE REAL ESTATE L.L.C – Dubai Real Estate Advisory" />
+  <meta name="twitter:description" content="Dubai-based real estate company focused on investment, brokerage and property management." />
+  <meta name="twitter:image" content="social-preview.jpg" />
+
   <style>
     :root {
       --bg: #050608;
@@ -202,7 +222,7 @@
     .hero-bg-slider {
       position: absolute;
       inset: 0;
-      z-index: -1;
+      z-index: -2;
       pointer-events: none;
     }
 
@@ -420,6 +440,7 @@
     .about-text {
       font-size: 0.95rem;
       color: #d7d8e1;
+      white-space: pre-line;
     }
 
     .about-highlight {
@@ -558,17 +579,45 @@
     }
 
     @media (max-width: 640px) {
+      .nav {
+        padding-inline: 1rem;
+      }
+
       .nav-links {
         display: none;
       }
 
-      .cards,
-      .cards-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
       .section {
         padding-inline: 1rem;
+        padding-top: 2.2rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .hero-section {
+        padding-top: 2.4rem;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.4rem;
+      }
+
+      .hero > div {
+        text-align: center;
+      }
+
+      .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-card {
+        max-width: 360px;
+        margin: 0 auto;
       }
 
       .hero-card-logo img {
@@ -585,6 +634,11 @@
 
       .lang-switcher button {
         font-size: 0.76rem;
+      }
+
+      .cards,
+      .cards-3 {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
@@ -813,7 +867,7 @@
       ru: { label: "Русский", flag: "🇷🇺" }
     };
 
-    // مفاتيح نسمح فيها بـ HTML (strong وما شابه)
+    // المفاتيح اللي مسموح فيها HTML (strong وغيره)
     const htmlKeys = new Set([
       "about_highlight",
       "contact_note"
@@ -877,16 +931,16 @@
           "Dubai combines population growth, record tourism, attractive rental yields and a pro-investor environment – all of which support the real estate market over the long run.",
         why_population_title: "Fast-growing population",
         why_population_text:
-          "Dubai’s population has more than doubled since 2010, rising from around 1.9M to well above 3.7M residents, driven by jobs, infrastructure and quality of life – creating continuous demand for housing.",
+          "Dubai’s population has more than doubled since 2010, driven by jobs, infrastructure and quality of life – creating continuous demand for both end-user homes and rental properties.",
         why_tourism_title: "Record tourism demand",
         why_tourism_text:
-          "In 2023, Dubai welcomed around 17.15 million international visitors, a new record and an increase of about 19% compared to 2022 – supporting both short-term rentals and long-term demand.",
+          "Dubai welcomes tens of millions of international visitors every year, supporting strong demand for short-term rentals and hospitality-led residential projects.",
         why_yields_title: "Attractive rental yields",
         why_yields_text:
-          "Average gross rental yields in many Dubai communities often range around 6–9%, noticeably higher than mature global cities like London or New York, where typical yields are closer to 2–4%.",
+          "Average gross rental yields in many Dubai communities often range around 6–9%, noticeably higher than mature global cities where typical yields are closer to 2–4%.",
         why_prices_title: "Sustained price growth",
         why_prices_text:
-          "After several years of steady increases, Dubai’s residential market has seen double-digit annual price growth in recent years, while still offering options that are competitive compared with other global hubs.",
+          "After several years of steady increases, Dubai’s residential market continues to show healthy price growth while remaining competitive versus other global hubs.",
 
         contact_kicker: "Contact",
         contact_title: "Let’s talk about your next move in Dubai",
@@ -960,14 +1014,14 @@
         why_kicker: "لماذا الاستثمار في دبي؟",
         why_title: "مدينة عالمية بأساسيات قوية على المدى البعيد",
         why_intro:
-          "تجمع دبي بين نمو سكاني سريع، وقطاع سياحي قياسي، وعوائد إيجارية جذابة، وبيئة تشريعية مشجعة للمستثمرين – ما يدعم سوق العقار على المدى الطويل.",
+          "تجمع دبي بين نمو سكاني سريع، وقطاع سياحي قوي، وعوائد إيجارية جذابة، وبيئة تشريعية مشجعة للمستثمرين – ما يدعم سوق العقار على المدى الطويل.",
         why_population_title: "نمو سكاني مستمر",
         why_population_text:
-          "تجاوز عدد سكان دبي اليوم أكثر من ضعف ما كان عليه تقريباً في 2010، مع تدفق مستمر للمهنيين والمستثمرين من مختلف الدول، ما يخلق طلباً حقيقياً على السكن والتأجير.",
-        why_tourism_title: "وجهة سياحية قياسية",
+          "تجاوز عدد سكان دبي اليوم أكثر من ضعف ما كان عليه تقريباً في 2010، مع تدفق مستمر للمهنيين والمستثمرين من مختلف الدول، ما يخلق طلباً حقيقياً على السكن والتأجير في مختلف الفئات.",
+        why_tourism_title: "وجهة سياحية عالمية",
         why_tourism_text:
-          "استقبلت دبي في 2023 أكثر من 17 مليون زائر دولي تقريباً، مع نمو سنوي قوي، ما يعزز الطلب على الشقق الفندقية والإيجار اليومي والسنوي في مختلف المناطق.",
-        why_yields_title: "عوائد إيجارية منافسة عالمياً",
+          "تستقبل دبي سنوياً ملايين الزوار من مختلف دول العالم، ما يعزز الطلب على الشقق الفندقية والإيجار اليومي والسنوي في أهم المناطق السياحية والسكنية.",
+        why_yields_title: "عوائد إيجارية منافسة",
         why_yields_text:
           "تقدّم العديد من المناطق في دبي عوائد إيجارية قوية مقارنة بوجهات عالمية ناضجة، مع فرص جذابة للمستثمرين الباحثين عن دخل إيجاري مستقر بالدرهم أو بالدولار.",
         why_prices_title: "اتجاه أسعار صاعد",
@@ -1047,13 +1101,13 @@
         why_kicker: "Waarom investeren in Dubai?",
         why_title: "Een internationale hub met sterke fundamentals",
         why_intro:
-          "Dubai combineert bevolkingsgroei, recordtoerisme, aantrekkelijke huur­rendementen en een investeringsvriendelijke omgeving – factoren die de vastgoedmarkt structureel ondersteunen.",
+          "Dubai combineert bevolkingsgroei, een sterke toeristische sector, aantrekkelijke huur­rendementen en een investeringsvriendelijke omgeving – factoren die de vastgoedmarkt structureel ondersteunen.",
         why_population_title: "Sterke bevolkingsgroei",
         why_population_text:
           "De bevolking van Dubai is sinds 2010 meer dan verdubbeld. De instroom van expats, ondernemers en specialisten zorgt voor een blijvende vraag naar woonruimte en huurwoningen.",
         why_tourism_title: "Wereldwijde toeristische bestemming",
         why_tourism_text:
-          "In 2023 verwelkomde Dubai ruim 17 miljoen internationale bezoekers, een nieuw record. Dit ondersteunt zowel de korte- als langetermijnhuur in belangrijke wijken.",
+          "Dubai ontvangt jaarlijks miljoenen internationale bezoekers, wat de vraag ondersteunt naar appartementen, serviced residences en short-stay verhuur in belangrijke wijken.",
         why_yields_title: "Aantrekkelijke huur­rendementen",
         why_yields_text:
           "Gemiddelde brutohuur­rendementen in Dubai liggen vaak rond 6–9%, duidelijk hoger dan in mature markten als Londen of New York, waar rendementen meestal rond 2–4% liggen.",
@@ -1134,13 +1188,13 @@
         why_kicker: "Почему стоит инвестировать в Дубай",
         why_title: "Глобальный центр с устойчивыми долгосрочными драйверами",
         why_intro:
-          "Рост населения, рекордный туризм, привлекательная доходность аренды и комфортная для инвесторов среда создают сильную основу для рынка недвижимости Дубая.",
+          "Рост населения, сильный туристический поток, привлекательная доходность аренды и комфортная для инвесторов среда создают прочную основу для рынка недвижимости Дубая.",
         why_population_title: "Быстро растущее население",
         why_population_text:
           "Население Дубая с 2010 года более чем удвоилось. Приток специалистов, предпринимателей и семей формирует стабильный спрос на жильё и аренду в разных сегментах рынка.",
         why_tourism_title: "Мировой туристический центр",
         why_tourism_text:
-          "В 2023 году Дубай принял более 17 миллионов международных гостей, установив новый рекорд. Это поддерживает спрос на кратко- и долгосрочную аренду в популярных районах города.",
+          "Дубай ежегодно принимает миллионы международных гостей, что поддерживает спрос на кратко- и долгосрочную аренду, особенно в ключевых локациях города.",
         why_yields_title: "Высокая доходность аренды",
         why_yields_text:
           "Средняя валовая доходность аренды во многих районах Дубая часто находится в диапазоне около 6–9%, что заметно выше, чем в таких городах, как Лондон или Нью-Йорк, где доходность обычно составляет 2–4%.",
