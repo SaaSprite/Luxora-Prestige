@@ -447,6 +447,10 @@
       margin-top: 1.3rem;
     }
 
+    .cards-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .card {
       background: rgba(9, 10, 16, 0.96);
       border-radius: var(--card-radius);
@@ -527,6 +531,11 @@
       background: rgba(3, 4, 6, 0.98);
     }
 
+    footer a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .hero,
@@ -542,6 +551,10 @@
       .cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .cards-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 640px) {
@@ -549,7 +562,8 @@
         display: none;
       }
 
-      .cards {
+      .cards,
+      .cards-3 {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -580,8 +594,7 @@
     <nav class="nav">
       <div class="nav-left">
         <div class="logo">
-          <!-- ضع ملف logo.jpg في نفس مجلد هذا الملف -->
-          <img src="logo.jpg" alt="LUXORA PRESTIGE REAL ESTATE L.L.C logo" />
+          <img src="logo.png" alt="LUXORA PRESTIGE REAL ESTATE L.L.C logo" />
         </div>
         <div class="logo-text">
           <span>LUXORA PRESTIGE</span>
@@ -594,12 +607,11 @@
           <a href="#home" data-i18n="nav_home"></a>
           <a href="#about" data-i18n="nav_about"></a>
           <a href="#services" data-i18n="nav_services"></a>
+          <a href="#why-dubai" data-i18n="nav_why_dubai"></a>
           <a href="#contact" data-i18n="nav_contact"></a>
         </div>
 
-        <div class="lang-switcher" id="langSwitcher">
-          <!-- buttons are created in JS -->
-        </div>
+        <div class="lang-switcher" id="langSwitcher"></div>
       </div>
     </nav>
   </header>
@@ -608,19 +620,9 @@
     <!-- Hero -->
     <section class="section hero-section" id="home">
       <div class="hero-bg-slider">
-        <!-- تأكد إنك رافع هالصور بنفس الأسماء -->
-        <div
-          class="hero-bg-slide active"
-          style="background-image:url('hero1.jpg')"
-        ></div>
-        <div
-          class="hero-bg-slide"
-          style="background-image:url('hero2.jpg')"
-        ></div>
-        <div
-          class="hero-bg-slide"
-          style="background-image:url('hero3.jpg')"
-        ></div>
+        <div class="hero-bg-slide active" style="background-image:url('hero1.jpg')"></div>
+        <div class="hero-bg-slide" style="background-image:url('hero2.jpg')"></div>
+        <div class="hero-bg-slide" style="background-image:url('hero3.jpg')"></div>
       </div>
 
       <div class="hero">
@@ -644,31 +646,19 @@
         <aside class="hero-card">
           <div class="hero-card-inner">
             <div class="hero-card-logo">
-              <img src="logo.jpg" alt="LUXORA PRESTIGE REAL ESTATE logo" />
+              <img src="logo.png" alt="LUXORA PRESTIGE REAL ESTATE logo" />
             </div>
             <div class="hero-card-title">LUXORA PRESTIGE</div>
             <div class="hero-card-sub" data-i18n="hero_card_sub"></div>
             <div class="hero-card-divider"></div>
             <div class="hero-card-row">
               <div>
-                <div
-                  class="hero-card-label"
-                  data-i18n="hero_card_location_label"
-                ></div>
-                <div
-                  class="hero-card-value"
-                  data-i18n="hero_card_location_value"
-                ></div>
+                <div class="hero-card-label" data-i18n="hero_card_location_label"></div>
+                <div class="hero-card-value" data-i18n="hero_card_location_value"></div>
               </div>
               <div>
-                <div
-                  class="hero-card-label"
-                  data-i18n="hero_card_focus_label"
-                ></div>
-                <div
-                  class="hero-card-value"
-                  data-i18n="hero_card_focus_value"
-                ></div>
+                <div class="hero-card-label" data-i18n="hero_card_focus_label"></div>
+                <div class="hero-card-value" data-i18n="hero_card_focus_value"></div>
               </div>
             </div>
           </div>
@@ -721,6 +711,37 @@
       </div>
     </section>
 
+    <!-- Why invest in Dubai -->
+    <section class="section" id="why-dubai">
+      <div class="section-header">
+        <div class="section-kicker" data-i18n="why_kicker"></div>
+        <h2 class="section-title" data-i18n="why_title"></h2>
+        <p class="section-intro" data-i18n="why_intro"></p>
+      </div>
+
+      <div class="cards cards-3">
+        <article class="card">
+          <h3 class="card-title" data-i18n="why_population_title"></h3>
+          <p class="card-body" data-i18n="why_population_text"></p>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title" data-i18n="why_tourism_title"></h3>
+          <p class="card-body" data-i18n="why_tourism_text"></p>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title" data-i18n="why_yields_title"></h3>
+          <p class="card-body" data-i18n="why_yields_text"></p>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title" data-i18n="why_prices_title"></h3>
+          <p class="card-body" data-i18n="why_prices_text"></p>
+        </article>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="section" id="contact">
       <div class="section-header">
@@ -733,68 +754,39 @@
         <div>
           <div class="contact-list">
             <div>
-              <div
-                class="contact-item-label"
-                data-i18n="contact_email_label"
-              ></div>
+              <div class="contact-item-label" data-i18n="contact_email_label"></div>
               <div>
-                <a href="mailto:info@luxora-prestige.ae"
-                  >info@luxora-prestige.ae</a
-                >
+                <a href="mailto:info@luxora-prestige.ae">info@luxora-prestige.ae</a>
               </div>
             </div>
 
             <div>
-              <div
-                class="contact-item-label"
-                data-i18n="contact_phone_label"
-              ></div>
+              <div class="contact-item-label" data-i18n="contact_phone_label"></div>
               <div>
-                <a
-                  href="https://wa.me/971564469695"
-                  target="_blank"
-                  rel="noopener"
-                  >+971 56 446 9695</a
-                >
+                <a href="https://wa.me/971564469695" target="_blank" rel="noopener">+971 56 446 9695</a>
               </div>
             </div>
 
             <div>
-              <div
-                class="contact-item-label"
-                data-i18n="contact_instagram_label"
-              ></div>
+              <div class="contact-item-label" data-i18n="contact_instagram_label"></div>
               <div>
-                <a
-                  href="https://www.instagram.com/luxoraprestige"
-                  target="_blank"
-                  rel="noopener"
-                  >@luxoraprestige</a
-                >
+                <a href="https://www.instagram.com/luxoraprestige" target="_blank" rel="noopener">@luxoraprestige</a>
               </div>
             </div>
 
             <div>
-              <div
-                class="contact-item-label"
-                data-i18n="contact_facebook_label"
-              ></div>
+              <div class="contact-item-label" data-i18n="contact_facebook_label"></div>
               <div>
                 <a
                   href="https://www.facebook.com/profile.php?id=61572460080845"
                   target="_blank"
                   rel="noopener"
-                >
-                  Facebook
-                </a>
+                >Facebook</a>
               </div>
             </div>
 
             <div>
-              <div
-                class="contact-item-label"
-                data-i18n="contact_location_label"
-              ></div>
+              <div class="contact-item-label" data-i18n="contact_location_label"></div>
               <div data-i18n="contact_location_value"></div>
             </div>
           </div>
@@ -807,10 +799,11 @@
 
   <footer>
     <span data-i18n="footer_rights"></span>
+    <span> · </span>
+    <a href="https://saasprite.com/" target="_blank" rel="noopener">Developed by SaaSprite AI</a>
   </footer>
 
   <script>
-    // اللغات المفعّلة – احذف أي لغة ما بدك ياها
     const enabledLanguages = ["en", "ar", "nl", "ru"];
 
     const languageMeta = {
@@ -820,11 +813,18 @@
       ru: { label: "Русский", flag: "🇷🇺" }
     };
 
+    // مفاتيح نسمح فيها بـ HTML (strong وما شابه)
+    const htmlKeys = new Set([
+      "about_highlight",
+      "contact_note"
+    ]);
+
     const translations = {
       en: {
         nav_home: "Home",
         nav_about: "About",
         nav_services: "Services",
+        nav_why_dubai: "Why Dubai",
         nav_contact: "Contact",
 
         hero_badge: "Dubai – Real Estate",
@@ -870,6 +870,24 @@
         service_property_mgmt_text:
           "Support with renting, tenant coordination and portfolio optimisation to help keep your assets occupied, well-maintained and aligned with your investment strategy.",
 
+        // WHY DUBAI
+        why_kicker: "Why Dubai",
+        why_title: "A global hub with strong, long-term fundamentals",
+        why_intro:
+          "Dubai combines population growth, record tourism, attractive rental yields and a pro-investor environment – all of which support the real estate market over the long run.",
+        why_population_title: "Fast-growing population",
+        why_population_text:
+          "Dubai’s population has more than doubled since 2010, rising from around 1.9M to well above 3.7M residents, driven by jobs, infrastructure and quality of life – creating continuous demand for housing.",
+        why_tourism_title: "Record tourism demand",
+        why_tourism_text:
+          "In 2023, Dubai welcomed around 17.15 million international visitors, a new record and an increase of about 19% compared to 2022 – supporting both short-term rentals and long-term demand.",
+        why_yields_title: "Attractive rental yields",
+        why_yields_text:
+          "Average gross rental yields in many Dubai communities often range around 6–9%, noticeably higher than mature global cities like London or New York, where typical yields are closer to 2–4%.",
+        why_prices_title: "Sustained price growth",
+        why_prices_text:
+          "After several years of steady increases, Dubai’s residential market has seen double-digit annual price growth in recent years, while still offering options that are competitive compared with other global hubs.",
+
         contact_kicker: "Contact",
         contact_title: "Let’s talk about your next move in Dubai",
         contact_intro:
@@ -881,7 +899,7 @@
         contact_location_label: "Location",
         contact_location_value: "Dubai, United Arab Emirates",
         contact_note:
-          "Whether you are outside the UAE and looking for a safe entry into the Dubai market or already living in the city and searching for your next upgrade, LUXORA PRESTIGE provides clear guidance, curated property options and ongoing support.",
+          "Whether you are outside the UAE and looking for a safe entry into the Dubai market or already living in the city and searching for your next upgrade, <strong>LUXORA PRESTIGE</strong> provides clear guidance, curated property options and ongoing support.",
         footer_rights:
           "© " +
           new Date().getFullYear() +
@@ -892,6 +910,7 @@
         nav_home: "الرئيسية",
         nav_about: "من نحن",
         nav_services: "خدماتنا",
+        nav_why_dubai: "لماذا دبي؟",
         nav_contact: "تواصل معنا",
 
         hero_badge: "دبي – عقارات",
@@ -937,6 +956,24 @@
         service_property_mgmt_text:
           "دعم في التأجير، متابعة المستأجرين، وتحسين أداء المحفظة العقارية لتبقى أصولك مؤجرة، محفوظة، ومتوافقة مع استراتيجيتك الاستثمارية.",
 
+        // WHY DUBAI
+        why_kicker: "لماذا الاستثمار في دبي؟",
+        why_title: "مدينة عالمية بأساسيات قوية على المدى البعيد",
+        why_intro:
+          "تجمع دبي بين نمو سكاني سريع، وقطاع سياحي قياسي، وعوائد إيجارية جذابة، وبيئة تشريعية مشجعة للمستثمرين – ما يدعم سوق العقار على المدى الطويل.",
+        why_population_title: "نمو سكاني مستمر",
+        why_population_text:
+          "تجاوز عدد سكان دبي اليوم أكثر من ضعف ما كان عليه تقريباً في 2010، مع تدفق مستمر للمهنيين والمستثمرين من مختلف الدول، ما يخلق طلباً حقيقياً على السكن والتأجير.",
+        why_tourism_title: "وجهة سياحية قياسية",
+        why_tourism_text:
+          "استقبلت دبي في 2023 أكثر من 17 مليون زائر دولي تقريباً، مع نمو سنوي قوي، ما يعزز الطلب على الشقق الفندقية والإيجار اليومي والسنوي في مختلف المناطق.",
+        why_yields_title: "عوائد إيجارية منافسة عالمياً",
+        why_yields_text:
+          "تقدّم العديد من المناطق في دبي عوائد إيجارية قوية مقارنة بوجهات عالمية ناضجة، مع فرص جذابة للمستثمرين الباحثين عن دخل إيجاري مستقر بالدرهم أو بالدولار.",
+        why_prices_title: "اتجاه أسعار صاعد",
+        why_prices_text:
+          "شهدت السوق السكنية في دبي خلال السنوات الأخيرة نمواً ملحوظاً في الأسعار، مع استمرار توفر خيارات تنافسية مقارنة بالعديد من المدن العالمية الأخرى.",
+
         contact_kicker: "تواصل",
         contact_title: "دعنا نناقش خطوتك العقارية القادمة في دبي",
         contact_intro:
@@ -948,7 +985,7 @@
         contact_location_label: "الموقع",
         contact_location_value: "دبي، الإمارات العربية المتحدة",
         contact_note:
-          "سواء كنت خارج الإمارات وتبحث عن مدخل آمن لسوق دبي العقاري، أو مقيم في دبي وتفكر في ترقية سكنك أو تنويع استثماراتك، تقدّم لك لوكسورا برستيج إرشاداً واضحاً وخيارات مختارة بعناية مع متابعة مستمرة.",
+          "سواء كنت خارج الإمارات وتبحث عن مدخل آمن لسوق دبي العقاري، أو مقيم في دبي وتفكر في ترقية سكنك أو تنويع استثماراتك، تقدّم لك <strong>لوكسورا برستيج</strong> إرشاداً واضحاً وخيارات مختارة بعناية مع متابعة مستمرة.",
         footer_rights:
           "© " +
           new Date().getFullYear() +
@@ -959,6 +996,7 @@
         nav_home: "Home",
         nav_about: "Over ons",
         nav_services: "Diensten",
+        nav_why_dubai: "Waarom Dubai",
         nav_contact: "Contact",
 
         hero_badge: "Dubai – Vastgoed",
@@ -1005,6 +1043,24 @@
         service_property_mgmt_text:
           "Ondersteuning bij verhuur, huurdersbeheer en optimalisatie van uw portefeuille, zodat uw objecten verhuurd, goed onderhouden en rendabel blijven.",
 
+        // WHY DUBAI
+        why_kicker: "Waarom investeren in Dubai?",
+        why_title: "Een internationale hub met sterke fundamentals",
+        why_intro:
+          "Dubai combineert bevolkingsgroei, recordtoerisme, aantrekkelijke huur­rendementen en een investeringsvriendelijke omgeving – factoren die de vastgoedmarkt structureel ondersteunen.",
+        why_population_title: "Sterke bevolkingsgroei",
+        why_population_text:
+          "De bevolking van Dubai is sinds 2010 meer dan verdubbeld. De instroom van expats, ondernemers en specialisten zorgt voor een blijvende vraag naar woonruimte en huurwoningen.",
+        why_tourism_title: "Wereldwijde toeristische bestemming",
+        why_tourism_text:
+          "In 2023 verwelkomde Dubai ruim 17 miljoen internationale bezoekers, een nieuw record. Dit ondersteunt zowel de korte- als langetermijnhuur in belangrijke wijken.",
+        why_yields_title: "Aantrekkelijke huur­rendementen",
+        why_yields_text:
+          "Gemiddelde brutohuur­rendementen in Dubai liggen vaak rond 6–9%, duidelijk hoger dan in mature markten als Londen of New York, waar rendementen meestal rond 2–4% liggen.",
+        why_prices_title: "Gezonde prijsontwikkeling",
+        why_prices_text:
+          "De vastgoedprijzen in Dubai zijn de afgelopen jaren gestaag gestegen, terwijl veel projecten qua prijsniveau nog steeds concurrerend zijn ten opzichte van andere wereldsteden.",
+
         contact_kicker: "Contact",
         contact_title: "Laat ons uw plannen in Dubai bespreken",
         contact_intro:
@@ -1016,7 +1072,7 @@
         contact_location_label: "Locatie",
         contact_location_value: "Dubai, Verenigde Arabische Emiraten",
         contact_note:
-          "Of u nu buiten de VAE woont en veilig in de Dubai-markt wilt instappen, of al in Dubai woont en zoekt naar uw volgende stap: LUXORA PRESTIGE biedt helder advies, zorgvuldig geselecteerde objecten en blijvende ondersteuning.",
+          "Of u nu buiten de VAE woont en veilig in de Dubai-markt wilt instappen, of al in Dubai woont en zoekt naar uw volgende stap: <strong>LUXORA PRESTIGE</strong> biedt helder advies, zorgvuldig geselecteerde objecten en blijvende ondersteuning.",
         footer_rights:
           "© " +
           new Date().getFullYear() +
@@ -1027,6 +1083,7 @@
         nav_home: "Главная",
         nav_about: "О компании",
         nav_services: "Услуги",
+        nav_why_dubai: "Почему Дубай",
         nav_contact: "Контакты",
 
         hero_badge: "Дубай – Недвижимость",
@@ -1073,6 +1130,24 @@
         service_property_mgmt_text:
           "Помощь в сдаче в аренду, взаимодействии с арендаторами и управлении портфелем объектов, чтобы ваша недвижимость оставалась занята, ухожена и прибыльна.",
 
+        // WHY DUBAI
+        why_kicker: "Почему стоит инвестировать в Дубай",
+        why_title: "Глобальный центр с устойчивыми долгосрочными драйверами",
+        why_intro:
+          "Рост населения, рекордный туризм, привлекательная доходность аренды и комфортная для инвесторов среда создают сильную основу для рынка недвижимости Дубая.",
+        why_population_title: "Быстро растущее население",
+        why_population_text:
+          "Население Дубая с 2010 года более чем удвоилось. Приток специалистов, предпринимателей и семей формирует стабильный спрос на жильё и аренду в разных сегментах рынка.",
+        why_tourism_title: "Мировой туристический центр",
+        why_tourism_text:
+          "В 2023 году Дубай принял более 17 миллионов международных гостей, установив новый рекорд. Это поддерживает спрос на кратко- и долгосрочную аренду в популярных районах города.",
+        why_yields_title: "Высокая доходность аренды",
+        why_yields_text:
+          "Средняя валовая доходность аренды во многих районах Дубая часто находится в диапазоне около 6–9%, что заметно выше, чем в таких городах, как Лондон или Нью-Йорк, где доходность обычно составляет 2–4%.",
+        why_prices_title: "Позитивная динамика цен",
+        why_prices_text:
+          "За последние годы цены на жильё в Дубае демонстрируют устойчивый рост, при этом многие объекты остаются более доступными по сравнению с другими крупными мировыми центрами.",
+
         contact_kicker: "Контакты",
         contact_title: "Обсудим ваши планы в Дубае",
         contact_intro:
@@ -1084,7 +1159,7 @@
         contact_location_label: "Локация",
         contact_location_value: "Дубай, ОАЭ",
         contact_note:
-          "Если вы только планируете выйти на рынок недвижимости Дубая или уже живёте в городе и задумываетесь о следующем шаге, LUXORA PRESTIGE предложит понятную стратегию, отобранные варианты и сопровождение на каждом этапе.",
+          "Если вы только планируете выйти на рынок недвижимости Дубая или уже живёте в городе и задумываетесь о следующем шаге, <strong>LUXORA PRESTIGE</strong> предложит понятную стратегию, отобранные варианты и сопровождение на каждом этапе.",
         footer_rights:
           "© " +
           new Date().getFullYear() +
@@ -1107,7 +1182,11 @@
 
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
-        if (dict[key]) {
+        if (!dict[key]) return;
+
+        if (htmlKeys.has(key)) {
+          el.innerHTML = dict[key];
+        } else {
           el.textContent = dict[key];
         }
       });
@@ -1166,7 +1245,7 @@
           slides[current].classList.remove("active");
           current = (current + 1) % slides.length;
           slides[current].classList.add("active");
-        }, 6000); // كل ٦ ثواني
+        }, 6000);
       }
     });
   </script>
