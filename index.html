@@ -762,6 +762,65 @@
         grid-template-columns: minmax(0, 1fr);
       }
     }
+
+    #renewalOverlay{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:linear-gradient(135deg,#000,#0a0a0a,#111);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:999999;
+    }
+
+    .renewal-box{
+      background:rgba(20,20,20,0.95);
+      padding:70px;
+      border-radius:18px;
+      text-align:center;
+      max-width:650px;
+      border:1px solid rgba(212,175,55,0.3);
+      box-shadow:0 0 80px rgba(212,175,55,0.08);
+      color:white;
+      font-family:Arial;
+    }
+    
+    .renewal-logo{
+      color:#D4AF37;
+      font-size:34px;
+      letter-spacing:2px;
+      margin-bottom:25px;
+      font-weight:600;
+    }
+    
+    .renewal-box h1{
+      font-weight:500;
+      margin-bottom:15px;
+    }
+    
+    .renewal-box p{
+      color:#bbb;
+      line-height:1.7;
+      margin-bottom:30px;
+    }
+    
+    .renewal-btn{
+      background:#D4AF37;
+      color:black;
+      padding:14px 28px;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.25s;
+    }
+    
+    .renewal-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(212,175,55,0.35);
+    }
   </style>
 </head>
 <body>
@@ -979,6 +1038,27 @@
         </div>
       </div>
     </section>
+    <!-- Renewal Overlay -->
+    <div id="renewalOverlay">
+        <div class="renewal-box">
+    
+            <div class="renewal-logo">
+                SaaSprite AI Applications & Services
+            </div>
+    
+            <h1>Website Temporarily Unavailable</h1>
+    
+            <p>
+                This website is currently unavailable due to a pending service renewal.
+                Please contact the service provider to restore the website.
+            </p>
+    
+            <a href="mailto:admin@saasprite.com" class="renewal-btn">
+                Contact Support
+            </a>
+    
+        </div>
+    </div>
   </main>
 
   <footer>
@@ -988,6 +1068,29 @@
   </footer>
 
   <script>
+
+    fetch('/status.json?v=' + new Date().getTime())
+      .then(res => res.json())
+      .then(data => {
+      
+    if(data.status === 'renewal'){
+      
+        document.getElementById("renewalOverlay").style.display = "flex";
+        document.body.style.overflow = "hidden"; // يمنع السكروول
+      
+      }
+      
+    })
+    .catch(() => {
+      
+      // لو الملف ما انقرأ لأي سبب
+      // الأفضل توقف الموقع احتياطياً
+      
+      document.getElementById("renewalOverlay").style.display = "flex";
+      document.body.style.overflow = "hidden";
+      
+    });
+    
     const enabledLanguages = ["en", "ar"];
 
     const languageMeta = {
