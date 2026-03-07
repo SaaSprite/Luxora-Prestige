@@ -1069,27 +1069,18 @@
 
   <script>
 
-    fetch('/status.json?v=' + new Date().getTime())
-      .then(res => res.json())
-      .then(data => {
-      
-    if(data.status === 'renewal'){
-      
-        document.getElementById("renewalOverlay").style.display = "flex";
-        document.body.style.overflow = "hidden"; // يمنع السكروول
-      
-      }
-      
-    })
-    .catch(() => {
-      
-      // لو الملف ما انقرأ لأي سبب
-      // الأفضل توقف الموقع احتياطياً
-      
+    // 1. حدد تاريخ انتهاء الصلاحية (الوقت اللي لازم يوقف فيه الموقع وتطلع شاشة التجديد)
+    // الصيغة: السنة-الشهر-اليوم T الساعة:الدقيقة:الثانية
+    const expirationDate = new Date("2026-12-31T23:59:59"); 
+
+    // 2. قراءة الوقت الحالي للزائر
+    const currentDate = new Date(); 
+
+    // 3. التحقق: إذا الوقت الحالي تخطى تاريخ الانتهاء، بتطلع شاشة التجديد
+    if (currentDate >= expirationDate) {
       document.getElementById("renewalOverlay").style.display = "flex";
-      document.body.style.overflow = "hidden";
-      
-    });
+      document.body.style.overflow = "hidden"; // بيمنع السكرول بالموقع
+    }
     
     const enabledLanguages = ["en", "ar"];
 
